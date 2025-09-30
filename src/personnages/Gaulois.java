@@ -21,5 +21,15 @@ public class Gaulois {
 	private String prendreParole() {
 		return "Le gaulois " + nom + " : ";
 	}
+	
+	@Override
+	public String toString() {
+		return getNom();
+	}
+	
+	public static void main(String[] args) {
+		Gaulois asterix = new Gaulois("Astérix", 8);
+		System.out.println(asterix);
+	}
 
 }
