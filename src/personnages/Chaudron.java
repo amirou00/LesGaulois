@@ -19,10 +19,10 @@ public class Chaudron {
 	}
 	
 	public int prendreLouche() {
-		if(quantitePotion > 0) {
+		if(resterPotion()) {
 			quantitePotion--;
-			if(quantitePotion == 0) {
-				forcePotion = 0;
+			if(quantitePotion < 1) {
+				forcePotion = 0;	
 			}
 			return forcePotion;
 		}
