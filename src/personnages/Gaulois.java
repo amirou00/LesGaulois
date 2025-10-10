@@ -42,11 +42,19 @@ public class Gaulois {
 	}
 	
 	public void setVillage(Village village) {
-		
+		this.village = village;
 	}
 	
 	public void sePresenter() {
-		
+	    if (village == null) {
+	        parler("Bonjour, je m'appelle " + getNom() + ". Je voyage de villages en villages.");
+	    }
+	    else if (village.getChef() == this) {
+	        parler("Bonjour, je m'appelle " + getNom() + ". Je suis le chef du village " + village.getNom() + ".");
+	    }
+	    else {
+	        parler("Bonjour, je m'appelle " + getNom() + ". J'habite le village " + village.getNom() + ".");
+	    }
 	}
 
 	public static void main(String[] args) {
