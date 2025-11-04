@@ -28,7 +28,7 @@ public class Village {
 			gaulois.setVillage(this);
 		}
 		else {
-			System.out.println("!!!Le viallage est full chef!!!");
+			System.out.println("!!!Le village est full chef!!!");
 		}
 	}
 	
