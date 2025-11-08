@@ -62,24 +62,31 @@ public class Gaulois {
 	    }
 	}
 	
-
-	
 	private String prendreParole() { 
 		return "Le gaulois " + nom + " : ";  
 	}
 	
-	
-	
 	public void frapper(Romain romain) { 
 		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + 
 		romain.getNom()); 
-		Equipement trophees[] = romain.recevoirCoup((force / 3) * effetPotion); 
-		for (int i = 0; trophees != null && i < trophees.length; i++, 
+		Equipement[] trophees_obtenus = romain.recevoirCoup((force / 3) * effetPotion); 
+		for (int i = 0; trophees_obtenus != null && i < trophees_obtenus.length; i++, 
 		nb_trophees++) { 
-		this.trophees[nb_trophees] = trophees[i]; 
+		this.trophees[nb_trophees] = trophees_obtenus[i]; 
 		} 
 	}
 	
+	public void faireUneDonnation(Musee musee) {
+		if (nb_trophees > 0) {
+			parler("Je donne au musee tous mes trophees :");
+			for (int i = 0; i < nb_trophees; i++) {
+				musee.donnerTrophee(this, trophees[i]);
+				System.out.println("- " + trophees[i].toString());
+				trophees[i] = null;
+			}
+			nb_trophees = 0;
+		}
+	}
 	
 
 	public static void main(String[] args) {
